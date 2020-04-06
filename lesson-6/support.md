@@ -20,7 +20,7 @@ For each of the operators, you can both read the summary of how it works and see
 `A and B` or `A && B` is <code style="color:blue"><b>true</b></code> whenever both A and B are <code style="color:blue"><b>true</b></code>, otherwise its <code style="color:red"><b>false</b></code>.
 
 | A | | B | | `A && B` |
-| - |- | - | - | ------ |
+| - | - | - | - | ------ |
 | <code style="color:blue"><b>true</b></code> | && | <code style="color:blue"><b>true</b></code> | = | <code style="color:blue"><b>true</b></code> |
 | <code style="color:blue"><b>true</b></code> | && | <code style="color:red"><b>false</b></code> | = | <code style="color:red"><b>false</b></code> |
 | <code style="color:red"><b>false</b></code> | && | <code style="color:blue"><b>true</b></code> | = | <code style="color:red"><b>false</b></code> |
@@ -28,8 +28,8 @@ For each of the operators, you can both read the summary of how it works and see
 
 `A or B` or `A || B` is <code style="color:blue"><b>true</b></code> whenever any of A or B are <code style="color:blue"><b>true</b></code>, otherwise its <code style="color:red"><b>false</b></code>.
 
-| A | | B | | `A || B` |
-| - |- | - | - | ------ |
+| A | | B | | `A \|\| B` |
+| - | - | - | - | ------ |
 | <code style="color:blue"><b>true</b></code> | \|\| | <code style="color:blue"><b>true</b></code> | = | <code style="color:blue"><b>true</b></code> |
 | <code style="color:blue"><b>true</b></code> | \|\| | <code style="color:red"><b>false</b></code> | = | <code style="color:blue"><b>true</b></code> |
 | <code style="color:red"><b>false</b></code> | \|\| | <code style="color:blue"><b>true</b></code> | = | <code style="color:blue"><b>true</b></code> |
@@ -129,20 +129,20 @@ bool option_1 = ((!var_a) && (!var_b));
 ```
 Let's start by building a truth table. We have 2 inputs - `var_a` and `var_b` - and 2 outputs - `option_0` and `option_1`.
 
-| var_a | var_b | option_0 <br />`!(var_a || var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | | | | |
 
 We know `var_a` can be either <code style="color:blue"><b>true</b></code> or <code style="color:red"><b>false</b></code> so lets fill that in.
 
-| var_a | var_b | option_0 <br />`!(var_a || var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | | | |
 | <code style="color:red"><b>false</b></code> | | | |
 
 We also know `var_b` can be either <code style="color:blue"><b>true</b></code> or <code style="color:red"><b>false</b></code>, however this is the case for all possibilities of `var_a`. This is shown using this table.
 
-| var_a | var_b | option_0 <br />`!(var_a || var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | | |
 | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | | |
@@ -151,7 +151,7 @@ We also know `var_b` can be either <code style="color:blue"><b>true</b></code> o
 
 Now we just fill in the values for our outputs `options_0` at first.
 
-| var_a | var_b | option_0 <br />`!(var_a || var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:blue"><b>true</b></span> || <span style="color:blue"><b>true</b></span>)</code> | |
 | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:blue"><b>true</b></span> || <span style="color:red"><b>false</b></span>)</code> | |
@@ -160,7 +160,7 @@ Now we just fill in the values for our outputs `options_0` at first.
 
 Simplifing inside the `( )` we get:
 
-| var_a | var_b | option_0 <br />`!(var_a || var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:blue"><b>true</b></span>)</code> | |
 | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:blue"><b>true</b></span>)</code> | |
@@ -169,7 +169,7 @@ Simplifing inside the `( )` we get:
 
 Simplifying again we get:
 
-| var_a | var_b | option_0 <br/>`!(var_a || var_b)` | option_1 <br/>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br/>`!(var_a \|\| var_b)` | option_1 <br/>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | |
 | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> | |
@@ -178,7 +178,7 @@ Simplifying again we get:
 
 If you follow a similar process for `option_1`, you will get the final table:
 
-| var_a | var_b | option_0 <br/>`!(var_a || var_b)` | option_1 <br/>`((!var_a) && (!var_b))`|
+| var_a | var_b | option_0 <br/>`!(var_a \|\| var_b)` | option_1 <br/>`((!var_a) && (!var_b))`|
 | -| - | - | - |
 | <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> |
 | <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> |

@@ -18,6 +18,10 @@ As a quick review, take a few minutes to go over the list and make sure you reme
 And now back to buisness...
 
 ## Supplemental Information
+
+### Memory table example
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kci2unbok2U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Structs
 Structs are a way of grouping types together in C++. Just like functions, structs don't change what your code does, they simply make it easier for you and anyone else to interpret your code. To help better understand that, this lesson will be organized with a follow along exercise in mind. Take time to implement the solution to every question on your own. The answers will be available, but look at them **only after** you've implemented it on your own, on paper.
 
