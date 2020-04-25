@@ -153,10 +153,10 @@ Now we just fill in the values for our outputs `options_0` at first.
 
 | var_a | var_b | option_0 <br />`!(var_a \|\| var_b)` | option_1 <br>`((!var_a) && (!var_b))`|
 | -| - | - | - |
-| <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:blue"><b>true</b></span> || <span style="color:blue"><b>true</b></span>)</code> | |
-| <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:blue"><b>true</b></span> || <span style="color:red"><b>false</b></span>)</code> | |
-| <code style="color:red"><b>false</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:red"><b>false</b></span> || <span style="color:blue"><b>true</b></span>)</code> | |
-| <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:red"><b>false</b></span> || <span style="color:red"><b>false</b></span>)</code> | |
+| <code style="color:blue"><b>true</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:blue"><b>true</b></span> \|\| <span style="color:blue"><b>true</b></span>)</code> | |
+| <code style="color:blue"><b>true</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:blue"><b>true</b></span> \|\| <span style="color:red"><b>false</b></span>)</code> | |
+| <code style="color:red"><b>false</b></code> | <code style="color:blue"><b>true</b></code> | <code>!(<span style="color:red"><b>false</b></span> \|\| <span style="color:blue"><b>true</b></span>)</code> | |
+| <code style="color:red"><b>false</b></code> | <code style="color:red"><b>false</b></code> | <code>!(<span style="color:red"><b>false</b></span> \|\| <span style="color:red"><b>false</b></span>)</code> | |
 
 Simplifing inside the `( )` we get:
 
